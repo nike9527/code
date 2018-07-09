@@ -20,7 +20,8 @@ while(true)
 		{
 			$html_content = file_get_contents($page_path);
 			//socket_write($client,$html_content);
-			socket_write($client,'status:404');
+			$str = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nServer: workerman\1.1.4\r\n\r\nhello";
+			socket_send$client,$str,100,MSG_DONTROUTE);
 		}else{
 			socket_write($client,'404');
 		}
