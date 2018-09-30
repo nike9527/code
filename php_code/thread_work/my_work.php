@@ -2,7 +2,7 @@
 <?php
 	//worker 是一个具有持久化上下文的线程对象，通常用来在多个线程中使用。
 	//worker 对象start后，会直接运行run()方法，执行完毕之后，线程也不会die掉
-	//Stackable是Threaded的一个别称，直到pthreads v.2.0.0
+	//SQLQuery 是任务类
 	class SQLQuery extends Thread
 	{
 		public $worker;
@@ -23,7 +23,7 @@
 	         }
 		}
 	}
-
+	//worker 执行任务
 	class ExampleWorker extends Worker {
 	        public static $dbh;
 	        public function __construct($name) {
@@ -48,7 +48,7 @@
 	
 	echo "{$worker->getStacked()} tasks\n"; //获取栈中剩余的任务数量
 	$worker->start(); 		 //执行完Worker中的对象后
-	$worker->shutdown();     //关闭Worker。
+	$worker->shutdown();     //关闭Worker。  跟队列很像
 
 	/*
 	这里会报错 
