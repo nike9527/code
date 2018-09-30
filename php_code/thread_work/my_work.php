@@ -5,6 +5,7 @@
 	//SQLQuery 是任务类
 	class SQLQuery extends Thread
 	{
+		public $count = 10;
 		public $worker;
 		public $sql;
 		public function __construct($sql)
@@ -19,6 +20,10 @@
 	     	$row->execute();
 	        while($member = $row->fetch(PDO::FETCH_ASSOC))
 	        {
+	        	$this->count--;
+	        	echo $this->count.PHP_EOL;
+	        	echo $this->getCreatorId().PHP_EOL;
+	      		sleep(2);
 	            // print_r($member);
 	         }
 		}
