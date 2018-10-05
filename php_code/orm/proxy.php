@@ -1,4 +1,7 @@
 <?php
+/**
+*利用反射进行拦截代码实例
+*/
 class mysql{
 	function connect($db)
 	{
