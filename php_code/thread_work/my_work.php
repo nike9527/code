@@ -22,7 +22,7 @@
 	        {
 	        	$this->count--;
 	        	echo $this->count.PHP_EOL;
-	        	echo $this->getCreatorId().PHP_EOL;
+	        	
 	      		sleep(2);
 	            // print_r($member);
 	         }
@@ -52,6 +52,7 @@
 	}
 	
 	echo "{$worker->getStacked()} tasks\n"; //获取栈中剩余的任务数量
+	echo $worker->getCreatorId().PHP_EOL;
 	$worker->start(); 		 //执行完Worker中的对象后
 	$worker->shutdown();     //关闭Worker。  跟队列很像
 
